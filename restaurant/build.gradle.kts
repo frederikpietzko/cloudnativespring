@@ -1,0 +1,16 @@
+plugins {
+    id("buildsrc.convention.kotlin-jvm")
+    id("buildsrc.convention.spring")
+}
+
+dependencies {
+    implementation(project(":utils"))
+    implementation(libs.bundles.kotlin)
+    implementation(libs.bundles.spring.boot)
+    implementation(libs.postgres)
+
+    testImplementation(libs.bundles.test.dependencies)
+    testRuntimeOnly(libs.bundles.test.runtime)
+
+    developmentOnly(libs.spring.boot.devtools)
+}

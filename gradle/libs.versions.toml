@@ -1,0 +1,67 @@
+# Version catalog is a central place for you to declare and version dependencies
+# https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
+# https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
+
+[versions]
+kotlin = "2.2.21"
+springBoot = "4.0.0-RC1"
+springDependencyManagement = "1.1.7"
+springCloud = "2025.1.0-M4"
+graalvm = "0.11.2"
+kotestAssertions = "6.0.4"
+
+[libraries]
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinSpringGradlePlugin = { module = "org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin", version.ref = "kotlin" }
+kotlinJpaGradlePlugin = { module = "org.jetbrains.kotlin.plugin.jpa:org.jetbrains.kotlin.plugin.jpa.gradle.plugin", version.ref = "kotlin" }
+springBootGradlePlugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot" }
+springDependencyManagementPlugin = { module = "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin", version.ref = "springDependencyManagement" }
+nativeImageGradlePlugin = { module = "org.graalvm.buildtools:native-gradle-plugin", version.ref = "graalvm" }
+
+spring-cloud-bom = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "springCloud" }
+
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
+spring-boot-starter-web-mvc = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+
+
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
+junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
+
+postgres = { module = "org.postgresql:postgresql", version = "42.7.8" }
+
+# Libraries can be bundled together for easier import
+[bundles]
+
+kotlin = [
+    "kotlin-reflect",
+    "kotlin-stdlib",
+]
+
+spring-boot = [
+    "spring-boot-starter-web-mvc",
+    "spring-boot-starter-data-jpa",
+    "spring-boot-starter-actuator",
+    "spring-boot-starter-validation",
+]
+
+test-dependencies = [
+    "spring-boot-starter-test",
+    "junit-jupiter-api",
+    "junit-jupiter-params",
+    "junit-jupiter-engine",
+    "kotest-assertions"
+]
+
+test-runtime = [
+    "junit-jupiter-engine",
+]
