@@ -1,6 +1,7 @@
 plugins {
     id("buildsrc.convention.kotlin-jvm")
     id("buildsrc.convention.spring")
+    application
 }
 
 dependencies {
@@ -13,4 +14,8 @@ dependencies {
     testRuntimeOnly(libs.bundles.test.runtime)
 
     developmentOnly(libs.spring.boot.devtools)
+}
+
+application {
+    mainClass = "com.github.frederikpietzko.cloudnativespring.restaurant.ApplicationKt"
 }

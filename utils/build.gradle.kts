@@ -1,6 +1,6 @@
 plugins {
     id("buildsrc.convention.kotlin-jvm")
-    id("buildsrc.convention.spring")
+    id("buildsrc.convention.spring-lib")
 }
 
 dependencies {
@@ -8,12 +8,4 @@ dependencies {
     implementation(libs.bundles.kotlin)
     implementation(libs.bundles.spring.boot)
     testImplementation(kotlin("test"))
-}
-
-tasks.bootJar {
-    enabled = false
-}
-
-tasks.jar {
-    enabled = true
 }
