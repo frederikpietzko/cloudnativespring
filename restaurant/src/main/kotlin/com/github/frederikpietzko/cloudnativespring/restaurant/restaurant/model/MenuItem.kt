@@ -1,4 +1,4 @@
-package com.github.frederikpietzko.cloudnativespring.restaurant.model
+package com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model
 
 import com.github.frederikpietzko.cloudnativespring.infrastructure.BaseEntity
 import jakarta.persistence.Embedded

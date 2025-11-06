@@ -1,6 +1,5 @@
 package buildsrc.convention
 
-import gradle.kotlin.dsl.accessors._11478672c438d8ce249ad31026392a9e.allOpen
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {

@@ -12,6 +12,7 @@ kotlin {
 dependencies {
     // Add a dependency on the Kotlin Gradle plugin, so that convention plugins can apply it.
     implementation(libs.kotlinGradlePlugin)
+    implementation(libs.kotlinKaptPlugin)
     implementation(libs.kotlinSpringGradlePlugin)
     implementation(libs.kotlinJpaGradlePlugin)
     implementation(libs.springBootGradlePlugin)

@@ -18,3 +18,11 @@ spring:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
     open-in-view: false
+  kafka:
+    bootstrap-servers:
+      - ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      auto-offset-reset: earliest
+      group-id: restaurant-service
+      properties:
+        value.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer

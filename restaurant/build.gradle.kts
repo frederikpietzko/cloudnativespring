@@ -9,6 +9,7 @@ dependencies {
     implementation(libs.bundles.kotlin)
     implementation(libs.bundles.spring.boot)
     implementation(libs.postgres)
+    implementation(libs.spring.kafka)
 
     testImplementation(libs.bundles.test.dependencies)
     testRuntimeOnly(libs.bundles.test.runtime)
