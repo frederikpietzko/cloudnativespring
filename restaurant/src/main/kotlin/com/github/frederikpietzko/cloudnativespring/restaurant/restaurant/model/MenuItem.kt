@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne
 class MenuItem(
     val name: String,
     @Embedded val price: Price,
-    @ManyToOne val restaurant: Restaurant,
-    val category: String,
-) : BaseEntity()
+    var category: String,
+) : BaseEntity() {
+    @ManyToOne
+    lateinit var restaurant: Restaurant
+}

@@ -1,5 +1,6 @@
 package buildsrc.convention
 
+import gradle.kotlin.dsl.accessors._11478672c438d8ce249ad31026392a9e.dependencyManagement
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
@@ -23,4 +24,10 @@ tasks.withType<BootJar> {
 
 tasks.withType<Jar> {
     enabled = true
+}
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2025.1.0-M4")
+        mavenBom("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom:2.21.0")
+    }
 }

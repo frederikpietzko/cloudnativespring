@@ -55,5 +55,11 @@ services:
       kafka:
         condition: service_healthy
 
+  grafana:
+    image: grafana/otel-lgtm
+    ports:
+      - "3000:3000"
+      - "4317:4317"
+      - "4318:4318"
 volumes:
   pg-data:

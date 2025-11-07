@@ -18,14 +18,14 @@ This is the suggested way to use Gradle in production projects.
 
 - [ ] Api Evolution
 - [ ] Event Driven Architecture
-- [ ] Transactional Outbox
+- [x] Transactional Outbox
 - [ ] Listen to yourself
 - [ ] Resilience
-- [ ] Observability
+- [x] Observability
 
 ## Tech used
 
 - [ ] Spring Cloud Stream
 - [ ] Spring Cloud Gateway
-- [ ] Open Telemetry
+- [x] Open Telemetry
 - [ ] Spring Cloud Contract

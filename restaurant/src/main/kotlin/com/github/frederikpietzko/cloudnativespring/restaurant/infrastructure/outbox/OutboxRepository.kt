@@ -1,4 +1,4 @@
-package com.github.frederikpietzko.cloudnativespring.restaurant.infrastructure.infrastructure.outbox
+package com.github.frederikpietzko.cloudnativespring.restaurant.infrastructure.outbox
 
 import org.springframework.data.jpa.repository.JpaRepository
 

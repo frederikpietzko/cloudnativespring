@@ -26,3 +26,7 @@ spring:
       group-id: restaurant-service
       properties:
         value.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+otel:
+  instrumentation:
+    kafka:
+      experimental-span-attributes: true
