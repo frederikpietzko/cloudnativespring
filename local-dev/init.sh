@@ -6,7 +6,7 @@ POSTGRES_USER="postgres"
 export PGPASSWORD="postgres"
 
 set -euo pipefail
-DBS=( "restaurant" )
+DBS=( "restaurant" "order" )
 
 for db in "${DBS[@]}"; do
   echo "Ensuring database '${db}' exists..."

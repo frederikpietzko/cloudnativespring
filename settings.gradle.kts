@@ -11,5 +11,6 @@ plugins {
 
 include(":utils")
 include(":restaurant")
+include(":order")
 
 rootProject.name = "cloudnativespring"
