@@ -1,6 +1,7 @@
 plugins {
     id("buildsrc.convention.kotlin-jvm")
     id("buildsrc.convention.spring")
+    id("buildsrc.convention.graalvm")
     application
 }
 

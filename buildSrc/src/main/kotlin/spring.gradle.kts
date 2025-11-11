@@ -7,7 +7,6 @@ plugins {
     kotlin("plugin.jpa")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
-    id("org.graalvm.buildtools.native")
 }
 
 tasks.withType<BootBuildImage> {

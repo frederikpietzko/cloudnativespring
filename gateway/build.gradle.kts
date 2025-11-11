@@ -6,11 +6,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":utils"))
-    implementation(libs.bundles.kotlin)
-    implementation(libs.bundles.spring.boot)
-    implementation(libs.postgres)
-    implementation(libs.spring.kafka)
+    implementation(libs.bundles.gateway)
 
     testImplementation(libs.bundles.test.dependencies)
     testRuntimeOnly(libs.bundles.test.runtime)
@@ -19,5 +15,5 @@ dependencies {
 }
 
 application {
-    mainClass = "com.github.frederikpietzko.cloudnativespring.restaurant.ApplicationKt"
+    mainClass = "com.github.frederikpietzko.cloudnativespring.gateway.ApplicationKt"
 }

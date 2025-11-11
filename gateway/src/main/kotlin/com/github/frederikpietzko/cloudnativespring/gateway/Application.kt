@@ -1,10 +1,13 @@
-package com.github.frederikpietzko.cloudnativespring.order
+package com.github.frederikpietzko.cloudnativespring.gateway
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.annotation.Configuration
 
 @SpringBootApplication
-class Application
+@Configuration
+class Application {
+}
 
 fun main() {
     SpringApplication.run(Application::class.java)
