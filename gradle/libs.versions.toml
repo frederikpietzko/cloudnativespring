@@ -6,10 +6,10 @@
 kotlin = "2.2.21"
 springBoot = "4.0.0-RC2"
 springDependencyManagement = "1.1.7"
-springCloud = "2025.1.0-SNAPSHOT"
 graalvm = "0.11.2"
 kotestAssertions = "6.0.4"
 micrometer = "1.5.0"
+otel = "1.51.0"
 
 [libraries]
 kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -19,8 +19,6 @@ kotlinJpaGradlePlugin = { module = "org.jetbrains.kotlin.plugin.jpa:org.jetbrain
 springBootGradlePlugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot" }
 springDependencyManagementPlugin = { module = "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin", version.ref = "springDependencyManagement" }
 nativeImageGradlePlugin = { module = "org.graalvm.buildtools:native-gradle-plugin", version.ref = "graalvm" }
-
-spring-cloud-bom = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "springCloud" }
 
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -48,6 +46,10 @@ junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
 junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
 kotest-assertions = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
+
+otel-api = { module = "io.opentelemetry:opentelemetry-api", version.ref = "otel" }
+otel-sdk = { module = "io.opentelemetry:opentelemetry-sdk", version.ref = "otel" }
+otel-exporter-otlp = { module = "io.opentelemetry:opentelemetry-exporter-otlp", version.ref = "otel" }
 
 postgres = { module = "org.postgresql:postgresql", version = "42.7.8" }
 
@@ -77,7 +79,10 @@ gateway = [
     "micrometer",
     "otel-spring-starter",
     "spring-boot-starter-actuator",
-    "spring-boot-micrometer"
+    "spring-boot-micrometer",
+#    "otel-api",
+#    "otel-sdk",
+#    "otel-exporter-otlp",
 ]
 
 test-dependencies = [

@@ -7,6 +7,7 @@ plugins {
 
 dependencies {
     implementation(libs.bundles.gateway)
+    implementation(libs.bundles.kotlin)
 
     testImplementation(libs.bundles.test.dependencies)
     testRuntimeOnly(libs.bundles.test.runtime)

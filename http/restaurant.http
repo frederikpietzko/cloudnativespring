@@ -1,0 +1,11 @@
+POST http://localhost:8090/restaurants/register
+Content-Type: application/json
+API-Version: 1.0
+
+{
+  "name": "The Gourmet Kitchen",
+  "street": "123 Culinary Ave",
+  "city": "Foodville",
+  "postalCode": "45678",
+  "country": "Gastronomia"
+}

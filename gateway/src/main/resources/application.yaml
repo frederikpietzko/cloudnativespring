@@ -3,3 +3,10 @@ server:
 spring:
   application:
     name: gateway
+gateway:
+  services:
+    order-service-url: http://localhost:8081
+    restaurant-service-url: http://localhost:8000
+otel:
+  sdk:
+    disabled: true
