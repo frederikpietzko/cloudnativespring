@@ -12,7 +12,7 @@ import java.math.BigDecimal
 import java.util.*
 
 @RestController
-@RequestMapping("/restaurants/menu-items")
+@RequestMapping("/menu-items")
 class MenuItemApi(
     private val menuService: MenuService,
 ) {
