@@ -7,6 +7,7 @@ import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.servic
 import jakarta.validation.Valid
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.Positive
+import org.hibernate.validator.constraints.Length
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.util.*
@@ -45,10 +46,10 @@ class MenuItemApi(
 
 data class AddMenuItemRequestDto(
     val restaurantId: UUID,
-    @Min(3) val name: String,
+    @Length(min = 3) val name: String,
     @Positive val price: BigDecimal,
     val currency: CurrencyDto,
-    @Min(3) val category: String,
+    @Length(min = 3) val category: String,
 ) {
     fun into() = MenuItem(
         name = name,

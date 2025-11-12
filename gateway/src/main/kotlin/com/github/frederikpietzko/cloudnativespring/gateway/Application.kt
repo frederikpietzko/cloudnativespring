@@ -31,6 +31,10 @@ class Application {
                 path("/orders/**")
                 uri(servicesConfiguration.orderServiceUrl)
             }
+            route("customer-service") {
+                path("/customers", "/customers/**")
+                uri(servicesConfiguration.customerServiceUrl)
+            }
         }
     }
 }
@@ -39,6 +43,7 @@ class Application {
 data class ServicesConfiguration(
     val restaurantServiceUrl: String,
     val orderServiceUrl: String,
+    val customerServiceUrl: String,
 )
 
 fun main() {

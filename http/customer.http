@@ -1,0 +1,15 @@
+POST http://localhost:8002/customers/register
+Content-Type: application/json
+API-Version: 1.0
+
+{
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "email": "alice.smith@example.com",
+  "dateOfBirth": "1985-05-15",
+  "street": "Maple St",
+  "houseNumber": "452 Apt 2B",
+  "city": "Springfield",
+  "postalCode": "12345",
+  "country": "USA"
+}

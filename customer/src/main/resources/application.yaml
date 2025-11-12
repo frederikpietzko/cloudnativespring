@@ -1,19 +1,18 @@
 server:
-  port: 8001
+  port: 8002
   servlet:
-    context-path: /orders
+    context-path: /customers
 spring:
   application:
-    name: order
+    name: customer
   datasource:
-    url: ${PG_CONNECTION_URL:jdbc:postgresql://localhost/order}
+    url: ${PG_CONNECTION_URL:jdbc:postgresql://localhost/customer}
     driver-class-name: org.postgresql.Driver
     username: ${PG_USER:postgres}
     password: ${PG_PASSWORD:postgres}
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -28,14 +27,22 @@ spring:
         value.serializer: org.springframework.kafka.support.serializer.JacksonJsonSerializer
     consumer:
       auto-offset-reset: earliest
-      group-id: order-service
+      group-id: customer-service
       properties:
         value.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
         spring:
           deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
           json:
-            trusted.packages: com.github.frederikpietzko.*
+              trusted.packages: com.github.frederikpietzko.*
 otel:
   instrumentation:
     kafka:
       experimental-span-attributes: true
+    jdbc:
+      experimental:
+        capture-query-parameters: true
+        transaction:
+          enabled: true
+        sqlcommenter:
+          enabled: true
+      enabled: true

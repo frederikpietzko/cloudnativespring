@@ -9,3 +9,16 @@ API-Version: 1.0
   "postalCode": "45678",
   "country": "Gastronomia"
 }
+
+###
+POST http://localhost:8090/restaurants/menu-items
+Content-Type: application/json
+API-Version: 1.0
+
+{
+  "restaurantId": "52de5383-9149-446b-870d-581c268c1c44",
+  "name": "Truffle Pasta",
+  "price": 25.99,
+  "currency": "EUR",
+  "category": "Pasta"
+}

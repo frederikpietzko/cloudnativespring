@@ -14,6 +14,8 @@ class OutboxEvent(
     @Enumerated(STRING) var status: Status = Status.PENDING,
     var sentAt: OffsetDateTime? = null,
     var errorMessage: String? = null,
+    val spanId: String? = null,
+    val traceId: String? = null,
 ) : BaseEntity()
 
 

@@ -8,6 +8,7 @@ import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.EventP
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.MenuItem
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.Price
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.repository.RestaurantRepository
+import io.opentelemetry.instrumentation.annotations.WithSpan
 import jakarta.transaction.Transactional
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
@@ -27,6 +28,7 @@ class MenuService(
     }
 
     @Transactional
+    @WithSpan
     fun addMenuItem(restaurantId: UUID, menuItem: MenuItem): MenuItem {
         val restaurant = restaurantRepository.findByIdOrNull(restaurantId)
         requireNotNull(restaurant) { "Restaurant with id $restaurantId not found" }
