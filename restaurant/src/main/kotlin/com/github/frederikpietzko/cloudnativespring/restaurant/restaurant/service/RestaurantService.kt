@@ -7,7 +7,9 @@ import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.EventP
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.Address
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.Restaurant
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.repository.RestaurantRepository
+import io.opentelemetry.instrumentation.annotations.WithSpan
 import jakarta.transaction.Transactional
+import org.slf4j.LoggerFactory
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.*
@@ -18,9 +20,15 @@ class RestaurantService(
     private val eventPublisher: EventPublisher,
 ) {
 
+    companion object {
+        private val logger = LoggerFactory.getLogger(RestaurantService::class.java)
+    }
+
     @Transactional
+    @WithSpan
     fun registerRestaurant(restaurant: Restaurant): Restaurant {
         val restaurant = restaurantRepository.save(restaurant)
+        logger.info("Registered restaurant with id ${restaurant.id}")
         eventPublisher.publishEvent(
             topic = "restaurant-registered",
             event = RestaurantRegisteredEvent(

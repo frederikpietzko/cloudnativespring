@@ -29,3 +29,11 @@ This is the suggested way to use Gradle in production projects.
 - [x] Spring Cloud Gateway
 - [x] Open Telemetry
 - [ ] Spring Cloud Contract
+
+TODO Obersability
+Spring Boot Actuator
+Micrometer
+Custom Metric
+Opentelemetry Standard
+Distrubuted Tracing
+Structured Logging

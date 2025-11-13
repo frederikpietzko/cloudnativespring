@@ -32,17 +32,17 @@ class CustomerService(
         return customer
     }
 
-    fun deleteCustomer(customerId: UUID) {
-        val customer = getCustomer(customerId)
-        logger.info("Deleting customer with id ${customer.id}")
-        kafkaTemplate.send("customer-deleted", customer.toDeleteEvent())
-    }
-
     @KafkaListener(topics = ["customer-registered"])
     @Transactional
     fun handleCustomerRegisteredEvent(event: CustomerRegisteredEvent) {
         logger.info("Handling CustomerRegisteredEvent for customer with id ${event.customerId}")
         customerRepository.save(event.toCustomer())
+    }
+
+    fun deleteCustomer(customerId: UUID) {
+        val customer = getCustomer(customerId)
+        logger.info("Deleting customer with id ${customer.id}")
+        kafkaTemplate.send("customer-deleted", customer.toDeleteEvent())
     }
 
     @KafkaListener(topics = ["customer-deleted"])

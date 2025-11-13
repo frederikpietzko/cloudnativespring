@@ -10,6 +10,7 @@ import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.repository.RestaurantRepository
 import io.opentelemetry.instrumentation.annotations.WithSpan
 import jakarta.transaction.Transactional
+import org.slf4j.LoggerFactory
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.*
@@ -19,6 +20,9 @@ class MenuService(
     private val restaurantRepository: RestaurantRepository,
     private val eventPublisher: EventPublisher,
 ) {
+    companion object {
+        private val logger = LoggerFactory.getLogger(MenuService::class.java)
+    }
 
     @Transactional
     fun getMenuItems(restaurantId: UUID): List<MenuItem> {
