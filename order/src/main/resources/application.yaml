@@ -35,6 +35,10 @@ spring:
           deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
           json:
             trusted.packages: com.github.frederikpietzko.*
+cloudnativespring:
+  restaurant:
+    service:
+      url: ${RESTAURANT_SERVICE_URL:http://localhost:8000/restaurants}
 otel:
   instrumentation:
     kafka:

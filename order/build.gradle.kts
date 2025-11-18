@@ -11,6 +11,9 @@ dependencies {
     implementation(libs.bundles.spring.boot)
     implementation(libs.postgres)
     implementation(libs.spring.kafka)
+    implementation(libs.spring.cloud.circuitbreaker)
+    implementation(libs.spring.cloud.retry.circuitbreaker)
+    implementation(libs.resilience4j.bulkhead)
 
     testImplementation(libs.bundles.test.dependencies)
     testRuntimeOnly(libs.bundles.test.runtime)

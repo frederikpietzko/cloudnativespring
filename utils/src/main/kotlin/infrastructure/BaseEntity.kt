@@ -18,4 +18,16 @@ abstract class BaseEntity {
 
     @UpdateTimestamp
     var updatedAt: OffsetDateTime = OffsetDateTime.now()
+
+    override fun equals(other: Any?): Boolean {
+        return when {
+            this === other -> true
+            other !is BaseEntity -> false
+            else -> id == other.id
+        }
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
 }
