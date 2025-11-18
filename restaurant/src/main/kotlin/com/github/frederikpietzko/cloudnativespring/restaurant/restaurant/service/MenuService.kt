@@ -18,7 +18,7 @@ import java.util.*
 @Service
 class MenuService(
     private val restaurantRepository: RestaurantRepository,
-    private val eventPublisher: EventPublisher,
+    private val outbox: EventPublisher,
 ) {
     companion object {
         private val logger = LoggerFactory.getLogger(MenuService::class.java)
@@ -31,14 +31,15 @@ class MenuService(
         return restaurant.menuItems.toList()
     }
 
-    @Transactional
     @WithSpan
+    @Transactional
     fun addMenuItem(restaurantId: UUID, menuItem: MenuItem): MenuItem {
         val restaurant = restaurantRepository.findByIdOrNull(restaurantId)
         requireNotNull(restaurant) { "Restaurant with id $restaurantId not found" }
         restaurant.addMenuItem(menuItem)
-        eventPublisher.publishEvent(
-            "menu-item-added", MenuItemAddedEvent(
+        outbox.publishEvent(
+            topic = "menu-item-added",
+            event = MenuItemAddedEvent(
                 restaurantId = restaurant.id,
                 menuItem = menuItem.into()
             )
