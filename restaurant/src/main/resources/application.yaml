@@ -34,15 +34,7 @@ spring:
           deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
           json:
             trusted.packages: com.github.frederikpietzko.*
-otel:
-  instrumentation:
-    kafka:
-      experimental-span-attributes: true
-    jdbc:
-      experimental:
-        capture-query-parameters: true
-        transaction:
-          enabled: true
-        sqlcommenter:
-          enabled: true
+management:
+  observations:
+    annotations:
       enabled: true

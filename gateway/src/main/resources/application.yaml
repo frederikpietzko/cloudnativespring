@@ -8,6 +8,7 @@ gateway:
     order-service-url: http://localhost:8081
     restaurant-service-url: http://localhost:8000
     customer-service-url: http://localhost:8002
-otel:
-  sdk:
-    disabled: true
+management:
+  observations:
+    annotations:
+      enabled: true

@@ -11,7 +11,7 @@ import com.github.frederikpietzko.cloudnativespring.order.order.model.Price
 import com.github.frederikpietzko.cloudnativespring.order.order.repository.OrderRepository
 import com.github.frederikpietzko.cloudnativespring.order.restaurant.MenuItemDto
 import com.github.frederikpietzko.cloudnativespring.order.restaurant.RestaurantService
-import io.opentelemetry.instrumentation.annotations.WithSpan
+import io.micrometer.tracing.annotation.NewSpan
 import jakarta.transaction.Transactional
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.core.KafkaTemplate
@@ -25,7 +25,6 @@ class CustomerOrderService(
     private val kafkaTemplate: KafkaTemplate<String, Any>,
 ) {
 
-    @WithSpan
     fun order(
         customerId: UUID,
         restaurantId: UUID,
@@ -54,7 +53,7 @@ class CustomerOrderService(
 
     @KafkaListener(topics = ["order-placed"])
     @Transactional
-    @WithSpan
+    @NewSpan
     fun handleOrderPlacedEvent(event: OrderPlacedEvent) {
         val customerOrder = event.toCustomerOrder()
         orderRepository.save(customerOrder)

@@ -8,7 +8,7 @@ import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.EventP
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.MenuItem
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.Price
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.repository.RestaurantRepository
-import io.opentelemetry.instrumentation.annotations.WithSpan
+import io.micrometer.tracing.annotation.NewSpan
 import jakarta.transaction.Transactional
 import org.slf4j.LoggerFactory
 import org.springframework.data.repository.findByIdOrNull
@@ -31,7 +31,7 @@ class MenuService(
         return restaurant.menuItems.toList()
     }
 
-    @WithSpan
+    @NewSpan
     @Transactional
     fun addMenuItem(restaurantId: UUID, menuItem: MenuItem): MenuItem {
         val restaurant = restaurantRepository.findByIdOrNull(restaurantId)

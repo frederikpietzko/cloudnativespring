@@ -1,10 +1,13 @@
 package com.github.frederikpietzko.cloudnativespring.restaurant.infrastructure.outbox
 
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.EventPublisher
+import io.micrometer.tracing.annotation.NewSpan
 import io.opentelemetry.api.GlobalOpenTelemetry
-import io.opentelemetry.api.trace.*
+import io.opentelemetry.api.trace.Span
+import io.opentelemetry.api.trace.SpanContext
+import io.opentelemetry.api.trace.TraceFlags
+import io.opentelemetry.api.trace.TraceState
 import io.opentelemetry.context.Context
-import io.opentelemetry.instrumentation.annotations.WithSpan
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.scheduling.annotation.Scheduled
@@ -23,7 +26,7 @@ class OutboxService(
         private val tracer = GlobalOpenTelemetry.getTracer("OutboxService")
     }
 
-    @WithSpan
+    @NewSpan
     override fun publishEvent(topic: String, event: Any) {
         val spanContext = Span.current().spanContext
         logger.info("Saving Event to Outbox: $event")

@@ -7,7 +7,7 @@ import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.EventP
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.Address
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model.Restaurant
 import com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.repository.RestaurantRepository
-import io.opentelemetry.instrumentation.annotations.WithSpan
+import io.micrometer.tracing.annotation.NewSpan
 import jakarta.transaction.Transactional
 import org.slf4j.LoggerFactory
 import org.springframework.data.repository.findByIdOrNull
@@ -25,7 +25,7 @@ class RestaurantService(
     }
 
     @Transactional
-    @WithSpan
+    @NewSpan
     fun registerRestaurant(restaurant: Restaurant): Restaurant {
         val restaurant = restaurantRepository.save(restaurant)
         logger.info("Registered restaurant with id ${restaurant.id}")

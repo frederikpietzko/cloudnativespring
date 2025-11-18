@@ -1,7 +1,7 @@
 package com.github.frederikpietzko.cloudnativespring.restaurant.restaurant.model
 
 import com.github.frederikpietzko.cloudnativespring.infrastructure.BaseEntity
-import io.opentelemetry.instrumentation.annotations.WithSpan
+import io.micrometer.tracing.annotation.NewSpan
 import jakarta.persistence.CascadeType.ALL
 import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
@@ -17,7 +17,8 @@ class Restaurant(
     companion object {
         private val logger = LoggerFactory.getLogger(Restaurant::class.java)
     }
-    @WithSpan
+
+    @NewSpan
     fun addMenuItem(menuItem: MenuItem) {
         menuItem.restaurant = this
         menuItems.add(menuItem)

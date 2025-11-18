@@ -39,7 +39,7 @@ cloudnativespring:
   restaurant:
     service:
       url: ${RESTAURANT_SERVICE_URL:http://localhost:8000/restaurants}
-otel:
-  instrumentation:
-    kafka:
-      experimental-span-attributes: true
+management:
+  observations:
+    annotations:
+      enabled: true
