@@ -38,6 +38,7 @@ spring-cloud-gateway = { module = "org.springframework.cloud:spring-cloud-starte
 spring-cloud-circuitbreaker = { module = "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j" }
 spring-cloud-retry-circuitbreaker = { module = "org.springframework.cloud:spring-cloud-starter-circuitbreaker-framework-retry", version = "5.0.0-RC1" }
 spring-cloud-config-server = { module = "org.springframework.cloud:spring-cloud-config-server" }
+spring-cloud-config-client = { module = "org.springframework.cloud:spring-cloud-starter-config" }
 resilience4j-bulkhead = { module = "io.github.resilience4j:resilience4j-bulkhead", version.ref = "reslilience4j-bulkhead" }
 
 spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
@@ -76,6 +77,7 @@ kotlin = [
 spring-boot = [
     "spring-boot-starter",
     "spring-boot-starter-web-mvc",
+    "spring-cloud-config-client",
     "spring-boot-starter-data-jpa",
     "spring-boot-starter-actuator",
     "spring-boot-starter-validation",
@@ -96,6 +98,7 @@ spring-boot = [
 
 gateway = [
     "spring-boot-starter",
+    "spring-cloud-config-client",
     "spring-boot-starter-webflux",
     "spring-cloud-gateway",
     "micrometer",

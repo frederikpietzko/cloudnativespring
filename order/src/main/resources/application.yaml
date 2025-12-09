@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: order
+  config:
+    import: configserver:http://localhost:9999
   datasource:
     url: ${PG_CONNECTION_URL:jdbc:postgresql://localhost/order}
     driver-class-name: org.postgresql.Driver
@@ -39,20 +41,3 @@ cloudnativespring:
   restaurant:
     service:
       url: ${RESTAURANT_SERVICE_URL:http://localhost:8000/restaurants}
-management:
-  observations:
-    annotations:
-      enabled: true
-  otlp:
-    metrics:
-      export:
-        url: http://localhost:4318/v1/metrics
-  opentelemetry:
-    tracing:
-      export:
-        otlp:
-          endpoint: http://localhost:4318/v1/traces
-    logging:
-      export:
-        otlp:
-          endpoint: http://localhost:4318/v1/logs

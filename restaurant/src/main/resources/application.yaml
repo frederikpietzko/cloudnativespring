@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: restaurant
+  config:
+    import: configserver:http://localhost:9999
   datasource:
     url: ${PG_CONNECTION_URL:jdbc:postgresql://localhost/restaurant}
     driver-class-name: org.postgresql.Driver
@@ -34,20 +36,3 @@ spring:
           deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
           json:
             trusted.packages: com.github.frederikpietzko.*
-management:
-  observations:
-    annotations:
-      enabled: true
-  otlp:
-    metrics:
-      export:
-        url: http://localhost:4318/v1/metrics
-  opentelemetry:
-    tracing:
-      export:
-        otlp:
-          endpoint: http://localhost:4318/v1/traces
-    logging:
-      export:
-        otlp:
-          endpoint: http://localhost:4318/v1/logs
