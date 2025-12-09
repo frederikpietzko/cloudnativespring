@@ -10,6 +10,7 @@ plugins {
 }
 
 include(":utils")
+include(":configserver")
 include(":gateway")
 include(":restaurant")
 include(":customer")
