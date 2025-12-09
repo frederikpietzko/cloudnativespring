@@ -43,3 +43,10 @@ management:
   observations:
     annotations:
       enabled: true
+  otlp:
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+    traces:
+      export:
+        url: http://localhost:4318/v1/traces

@@ -1,8 +1,6 @@
 package com.github.frederikpietzko.cloudnativespring.gateway
 
-import io.opentelemetry.instrumentation.spring.autoconfigure.OpenTelemetryAutoConfiguration
 import org.springframework.boot.SpringApplication
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
@@ -12,7 +10,7 @@ import org.springframework.cloud.gateway.route.builder.routes
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["com.github.frederikpietzko.cloudnativespring"])
 @Configuration
 @ConfigurationPropertiesScan
 class Application {

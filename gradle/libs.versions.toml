@@ -4,11 +4,10 @@
 
 [versions]
 kotlin = "2.2.21"
-springBoot = "4.0.0-RC2"
+springBoot = "4.0.0"
 springDependencyManagement = "1.1.7"
 graalvm = "0.11.2"
 kotestAssertions = "6.0.4"
-otel = "1.51.0"
 reslilience4j-bulkhead = "2.3.0"
 otel-appender = "2.21.0-alpha"
 
@@ -48,7 +47,6 @@ spring-boot-micrometer = { module = "org.springframework.boot:spring-boot-microm
 logback = { module = "ch.qos.logback:logback-core" }
 otel-logback-appender = { module = "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0", version.ref = "otel-appender" }
 otel-api = { module = "io.opentelemetry:opentelemetry-api" }
-otel-exporter-otlp = { module = "io.opentelemetry:opentelemetry-exporter-otlp" }
 spring-boot-aspectj = { module = "org.springframework.boot:spring-boot-starter-aspectj" }
 
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
@@ -88,7 +86,6 @@ spring-boot = [
     "logback",
     "otel-logback-appender",
     "otel-api",
-    "otel-exporter-otlp",
     "micrometer",
     "jackson-module-kotlin",
     "jackson-datatype-jdk8",
@@ -105,7 +102,6 @@ gateway = [
     "spring-boot-micrometer",
     "spring-boot-aspectj",
     "spring-boot-otel",
-    "otel-exporter-otlp",
     "micrometer-tracing",
     "logback",
     "otel-logback-appender",
