@@ -30,34 +30,28 @@ import java.io.IOException
 @Configuration(proxyBeanMethods = false)
 class OpenTelemetryConfiguration {
     @Bean
-    fun openTelemetryServerRequestObservationConvention(): OpenTelemetryServerRequestObservationConvention {
-        return OpenTelemetryServerRequestObservationConvention()
-    }
+    fun openTelemetryServerRequestObservationConvention(): OpenTelemetryServerRequestObservationConvention =
+        OpenTelemetryServerRequestObservationConvention()
 
     @Bean
-    fun openTelemetryJvmCpuMeterConventions(): OpenTelemetryJvmCpuMeterConventions {
-        return OpenTelemetryJvmCpuMeterConventions(Tags.empty())
-    }
+    fun openTelemetryJvmCpuMeterConventions(): OpenTelemetryJvmCpuMeterConventions =
+        OpenTelemetryJvmCpuMeterConventions(Tags.empty())
 
     @Bean
-    fun processorMetrics(): ProcessorMetrics {
-        return ProcessorMetrics(mutableListOf(), OpenTelemetryJvmCpuMeterConventions(Tags.empty()))
-    }
+    fun processorMetrics(): ProcessorMetrics =
+        ProcessorMetrics(mutableListOf(), OpenTelemetryJvmCpuMeterConventions(Tags.empty()))
 
     @Bean
-    fun jvmMemoryMetrics(): JvmMemoryMetrics {
-        return JvmMemoryMetrics(mutableListOf(), OpenTelemetryJvmMemoryMeterConventions(Tags.empty()))
-    }
+    fun jvmMemoryMetrics(): JvmMemoryMetrics =
+        JvmMemoryMetrics(mutableListOf(), OpenTelemetryJvmMemoryMeterConventions(Tags.empty()))
 
     @Bean
-    fun jvmThreadMetrics(): JvmThreadMetrics {
-        return JvmThreadMetrics(mutableListOf(), OpenTelemetryJvmThreadMeterConventions(Tags.empty()))
-    }
+    fun jvmThreadMetrics(): JvmThreadMetrics =
+        JvmThreadMetrics(mutableListOf(), OpenTelemetryJvmThreadMeterConventions(Tags.empty()))
 
     @Bean
-    fun classLoaderMetrics(): ClassLoaderMetrics {
-        return ClassLoaderMetrics(OpenTelemetryJvmClassLoadingMeterConventions())
-    }
+    fun classLoaderMetrics(): ClassLoaderMetrics =
+        ClassLoaderMetrics(OpenTelemetryJvmClassLoadingMeterConventions())
 
 }
 
@@ -69,7 +63,7 @@ internal class InstallOpenTelemetryAppender(private val openTelemetry: OpenTelem
 }
 
 @Component
-internal class TraceIdFilter(private val tracer: Tracer) : OncePerRequestFilter() {
+class TraceIdFilter(private val tracer: Tracer) : OncePerRequestFilter() {
 
     @Throws(ServletException::class, IOException::class)
     override fun doFilterInternal(
